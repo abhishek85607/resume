@@ -3,10 +3,10 @@ const app = express();
 const path = require('path');
 const port = 3000;
 
-// Ye line Apache folder ki files dikhane mein madad karegi
+
 app.use(express.static('/var/www/html'));
 
-// Ek Test API
+
 app.get('/api/status', (req, res) => {
     res.json({ 
         status: "Success", 
