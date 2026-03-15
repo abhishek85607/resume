@@ -3,18 +3,20 @@ const app = express();
 const path = require('path');
 const port = 3000;
 
+// Docker container ke andar files '/usr/src/app' mein hoti hain
+// Ye line Express ko batayegi ki sari static files yahin hain
+app.use(express.static(path.join(__dirname, '.')));
 
-app.use(express.static('/var/www/html'));
+// Main route jo index.html serve karega
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
 
-
+// Test API
 app.get('/api/status', (req, res) => {
-    res.json({ 
-        status: "Success", 
-        message: "Vicky Bhai ka Backend Live ho gaya hai!",
-        engineer: "Abhishek Kumar"
-    });
+    res.json({ status: "Success", message: "Docker Backend is Live!" });
 });
 
 app.listen(port, '0.0.0.0', () => {
-    console.log(`Server is flying at http://0.0.0.0:${port}`);
+    console.log(`Server running on port ${port}`);
 });
