@@ -13,12 +13,12 @@ pipeline{
     }
     stage('system check'){
       steps{
-        sh "uptime"
+        bat "dir"
       }
     }
     stage ('information'){
       steps {
-        echo " (sh) is used to execuate linux commands " 
+        echo " (bat) is used to ruun in windows " 
       }
     }
   }
