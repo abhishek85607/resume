@@ -5,7 +5,7 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "sudo docker build -t vicky-image ."
+                        sh "sudo docker build -d vicky-image ."
                         echo "Build Successful!"
                     } catch (Exception e) {
                         echo "Bhai, build fail ho gaya! Error: ${e.getMessage()}"
